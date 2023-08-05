@@ -13,13 +13,94 @@ body {
 justify-content: center;
 align-items: center;
 height: 100%;
-background-color: darkgreen;
+background-color: #1e555c;
+font-family: 'Times New Roman', Times, serif;
+color: white;
+
 .App 
 {
   justify-self: center;
   align-self: center;
-  width: 350px;
-  height: 240px;
-  background-color: black;
+  width: 500px;
+  height: 440px;
+  .App-header {
+    width: 100%;    
+    height: 100%;
+    // display: block;
+    
+    .Main__title{
+      line-height: 58px ;
+      font-size:3rem;     
+      width: 100%;
+      margin-bottom: 20px;
+      display: flex;
+    justify-content: center;
+   }
+   .Break__container{
+    width: 100%;
+    height: 68px;
+    display: flex !important;
+    justify-content: center;
+    align-items: center;
+
+    .Break__length, .Session__length{
+      display: flex;
+      justify-content: center;
+      align-items: center;
+   width: 100%;
+   height: 102px;
+   }}
+   .timer__container{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    width: 260px;
+    height:174px;
+    margin: 20px 108px 10px;
+    border-radius: 50px;
+    border: 7px solid #13353a;
+    .timer{
+      margin-top: 8px;
+      
+      justify-content: center;
+      align-items: center;
+      width: 80%;
+      height: 90%;
+      .timer__title{
+        width: 100%;
+        height: 25%;
+        // margin: 12px auto;
+      }
+      .timer__display{
+        width: 100%;
+        height: 75%;
+        margin: auto;
+      }
+    }
+    
+
+   }
+   .control__container{
+      // width: 100%;
+      height: 100px;
+      display: flex;
+      flex-direction: column;
+      // margin: auto;
+      text-align: center;
+      
+    justify-content: center;
+      .timer__control{
+        width: 100%;
+        height: 34px;
+      }
+      .timer__author{
+        margin-top:16px;
+        width: 100%;
+        height: 42px;
+
+      }
+    }
+  }
 }
 }
+
