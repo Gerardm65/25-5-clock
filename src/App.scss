@@ -1,3 +1,5 @@
+$colorPrincipal : white;
+$colorDanger: rgba(163, 16, 16, 0.845);
 *
  { margin: 0;
   padding: 0;
@@ -8,6 +10,7 @@ html{
    width: 100%;
   height: 100%;
 }
+
 body {
   display: flex;  
 justify-content: center;
@@ -15,14 +18,17 @@ align-items: center;
 height: 100%;
 background-color: #1e555c;
 font-family: 'Times New Roman', Times, serif;
-color: white;
+
 
 .App 
 {
+  color: $colorPrincipal;
   justify-self: center;
   align-self: center;
   width: 500px;
   height: 440px;
+  -webkit-user-select: none !important;
+  user-select: none !important;
   .App-header {
     width: 100%;    
     height: 100%;
@@ -42,14 +48,38 @@ color: white;
     display: flex !important;
     justify-content: center;
     align-items: center;
+    text-align: center;
 
     .Break__length, .Session__length{
-      display: flex;
-      justify-content: center;
-      align-items: center;
+      display: grid;
+    grid-template-columns: 1fr 1fr 1fr;
+    grid-template-rows: 1fr 1fr;
    width: 100%;
    height: 102px;
-   }}
+   #break-label, #session-label{
+    grid-row: 1;
+    grid-column: 1/4;
+   }
+   #break-decrement, #session-decrement{
+    cursor: pointer;
+    grid-row: 2;
+    grid-column: 1;
+    font-size: 2rem;
+   }
+   #session-length, #break-length{
+    grid-row: 2;
+    grid-column: 2;
+    font-size: 2rem;
+   }
+   #break-increment, #session-increment{
+    cursor: pointer;
+    grid-row: 2;
+    grid-column: 3;
+    font-size: 2rem;
+   }
+   }
+ 
+  }
    .timer__container{
     display: flex;
     justify-content: center;
@@ -61,21 +91,33 @@ color: white;
     border: 7px solid #13353a;
     .timer{
       margin-top: 8px;
-      
-      justify-content: center;
-      align-items: center;
+    
       width: 80%;
       height: 90%;
       .timer__title{
         width: 100%;
         height: 25%;
-        // margin: 12px auto;
+           display: flex;
+    align-items: center;
+    justify-content: center;
+    font-size: 2rem;
       }
       .timer__display{
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        font-size: 3.5rem;
+        font-weight: 700;
         width: 100%;
         height: 75%;
         margin: auto;
+      
       }
+        .timer__colored{
+          color:$colorDanger !important;
+          font-weight: 600;
+        }
+     
     }
     
 
@@ -90,14 +132,24 @@ color: white;
       
     justify-content: center;
       .timer__control{
+        display: flex;
+        justify-content: center;
         width: 100%;
         height: 34px;
+        font-size: 1.5rem;
       }
-      .timer__author{
+      .timer__author, a{
         margin-top:16px;
         width: 100%;
         height: 42px;
+        text-decoration: none;
+        color: $colorPrincipal;
+        font-size: 0.8rem;
+        font-weight: bold;
 
+      }
+      .control__box {
+        cursor:pointer
       }
     }
   }
