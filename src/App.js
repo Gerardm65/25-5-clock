@@ -81,37 +81,23 @@ function App() {
            setIsRunning(true);
            
              // Cambiar a break o session y restablecer el temporizador
-             if (isSession && timerMinutes === 0 && timerSeconds === 0) {
+             if (isSession) {
                setIsSession(false);
                setTimerMinutes(breakLength);
                setDisplay(false);
-               const alarmSound = document.getElementById('alarmSound');
-               if (alarmSound) {
-                 alarmSound.play();
+               if (timerMinutes === 0 && timerSeconds === 0) {
+                 const alarmSound = document.getElementById('alarmSound');
+                 if (alarmSound) {
+                   console.log(alarmSound);
+                   alarmSound.play();
+                 }
                }
-
              } else {
                setIsSession(true);
                setDisplay(true);
                appMethods.refreshTimer();
              }
-
-             // Reproducir el sonido de alarma
-             
-           
-          //  if (isSession) {
-          //    setIsSession(false);
-          //    // Cambiar a break
-          //    setTimerMinutes(breakLength);
-          //    setDisplay(false)
-          //  } else {
-          //    setIsSession(true); // Cambiar a session
-          //    setDisplay(true); // Cambiar a Session
-          //    appMethods.refreshTimer()
-             
-            
-          //  }  
-              
+         
 
                     
          }
@@ -187,9 +173,8 @@ function App() {
           <div className="timer__author">
             Designed And Coded by <br />
             <a href="https://github.com/Gerardm65">Gerardo Moratinos </a>
-            <audio id="alarmSound">
-              <source src="./audio/bip-alarm.wav" type="audio/wav" />
-            </audio>
+            <audio id="alarmSound" src="https://www.fesliyanstudios.com/play-mp3/4387" />
+            {/* <source src="https://www.fesliyanstudios.com/play-mp3/4387" type="audio/wav" /> */}
           </div>
         </div>
       </header>
