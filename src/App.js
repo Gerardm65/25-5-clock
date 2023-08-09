@@ -79,18 +79,41 @@ function App() {
          } else {
          
            setIsRunning(true);
-           if (isSession) {
-             setIsSession(false);
-             // Cambiar a break
-             setTimerMinutes(breakLength);
-             setDisplay(false)
-           } else {
-             setIsSession(true); // Cambiar a session
-             setDisplay(true); // Cambiar a Session
-             appMethods.refreshTimer()
+           
+             // Cambiar a break o session y restablecer el temporizador
+             if (isSession && timerMinutes === 0 && timerSeconds === 0) {
+               setIsSession(false);
+               setTimerMinutes(breakLength);
+               setDisplay(false);
+               const alarmSound = document.getElementById('alarmSound');
+               if (alarmSound) {
+                 alarmSound.play();
+               }
+
+             } else {
+               setIsSession(true);
+               setDisplay(true);
+               appMethods.refreshTimer();
+             }
+
+             // Reproducir el sonido de alarma
+             
+           
+          //  if (isSession) {
+          //    setIsSession(false);
+          //    // Cambiar a break
+          //    setTimerMinutes(breakLength);
+          //    setDisplay(false)
+          //  } else {
+          //    setIsSession(true); // Cambiar a session
+          //    setDisplay(true); // Cambiar a Session
+          //    appMethods.refreshTimer()
              
             
-           }           
+          //  }  
+              
+
+                    
          }
           if (timerMinutes === 0 && timerSeconds <= 60) {
             setColoredTheme(true);
@@ -162,7 +185,11 @@ function App() {
             </div>
           </div>
           <div className="timer__author">
-            Designed And Coded by <br/><a href="https://github.com/Gerardm65">Gerardo Moratinos </a>
+            Designed And Coded by <br />
+            <a href="https://github.com/Gerardm65">Gerardo Moratinos </a>
+            <audio id="alarmSound">
+              <source src="./audio/bip-alarm.wav" type="audio/wav" />
+            </audio>
           </div>
         </div>
       </header>
